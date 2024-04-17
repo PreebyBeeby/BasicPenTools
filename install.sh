@@ -59,7 +59,7 @@ install_package() {
 check_root
 detect_distribution
 
-REPO_URL="https://github.com/Preeby/Sennet"
+REPO_URL="https://github.com/PreebyBeeby/BasicPenTools"
 RELEASE_TAG=$( l -sI "${REPO_URL}/releases/latest" | grep -i 'location' | awk -F '/' '{print $NF}' | tr -d '\r\n')
 
 dependencies=('nmap' 'hping3' 'dnsutils' 'iw' 'whois')
@@ -69,7 +69,7 @@ for dep in "${dependencies[@]}"; do
     check_dependency "$dep"
 done
 
-commands=('netdos' 'netpulse' 'sennet' 'sennet_update' 'sennet_version' 'sennet_uninstall')
+commands=('netdos' 'netpulse' 'pentools')
 
 for cmd in "${commands[@]}"; do
     chmod +x "Commands/$cmd"
