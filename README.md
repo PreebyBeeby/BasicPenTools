@@ -39,7 +39,11 @@ The install script should do everything automatically, if not tell me!
 
 After installing, run 
 ```
-pentools -help
+pentools -h
+```
+or
+```
+pentools --help
 ```
 
 to understand how to use it!
