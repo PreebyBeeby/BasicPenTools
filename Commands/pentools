@@ -1,0 +1,37 @@
+#!/bin/bash
+
+color_banner() {
+    echo -e "\e[33m\e[7m
+
+      ██████╗  █████╗ ███████╗██╗ ██████╗██████╗ ███████╗███╗   ██╗████████╗ ██████╗  ██████╗ ██╗     ███████╗      
+▄ ██╗▄██╔══██╗██╔══██╗██╔════╝██║██╔════╝██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝▄ ██╗▄
+ ████╗██████╔╝███████║███████╗██║██║     ██████╔╝█████╗  ██╔██╗ ██║   ██║   ██║   ██║██║   ██║██║     ███████╗ ████╗
+▀╚██╔▀██╔══██╗██╔══██║╚════██║██║██║     ██╔═══╝ ██╔══╝  ██║╚██╗██║   ██║   ██║   ██║██║   ██║██║     ╚════██║▀╚██╔▀
+  ╚═╝ ██████╔╝██║  ██║███████║██║╚██████╗██║     ███████╗██║ ╚████║   ██║   ╚██████╔╝╚██████╔╝███████╗███████║  ╚═╝ 
+      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝╚═╝     ╚══════╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝                                                                                                                          
+====================================================================================================================\033[0m"
+}
+
+color_banner
+
+function show_help {
+    echo -e "\nBasicPenTools is used to get help on any command you need."
+    echo -e "\nUsage: pentools [netpulse | netdos]"
+}
+
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    show_help
+elif [[ "$1" == "netpulse" ]]; then
+    echo -e "\nNetpulse is a command which collects information about a target. You can scan both singular IPs as well as multiple."
+    echo -e "\nSingular IP: netpulse 192.168.0.1"
+    echo -e "\nMultiple IPs: netpule 192.168.0.1/24"
+    echo -e "\nUsage: netpulse [ip]"
+elif [[ "$1" == "netdos" ]]; then
+    echo -e "\nNetdos is a command which uses hping3 to perform a pentesting attack known as a Denial of Service attack."
+    echo -e "\nIf you do not know the IP or port you wish to flood, please use netpulse on your target."
+    echo -e "\nUsage: netdos [ip] [port]"
+    echo -e "\nFlags: [-o]"
+    echo -e "\n-o: Skips checking if the IP and Port are online."
+else
+    show_help
+fi
